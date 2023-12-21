@@ -12,7 +12,7 @@ const Banner = () => {
       <section className={`relative w-full h-screen mx-auto overflow-hidden`}>
         <div className="text-center mt-[80px] h-[70vh] flex flex-col justify-center items-center">
           <h1 className={`${styles.bannerHeadText} text-white text-center`}>
-            <span className="text-[#1F2937]">
+            <span className="">
               Master Your Day,
               <br />
               The Dooito Way.
