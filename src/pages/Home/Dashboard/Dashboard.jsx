@@ -1,11 +1,13 @@
-
+import Sidebar from "./Sider/Sidebar";
 
 const Dashboard = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <>
+      <div>
+        <Sidebar />
+      </div>
+    </>
+  );
 };
 
 export default Dashboard;

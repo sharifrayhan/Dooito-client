@@ -51,7 +51,8 @@ const AllContext = ({ children }) => {
       setLoading(false);
       if (currentUser) {
         const loggeduserinfo = { email: userEmail };
-        console.log(loggeduserinfo).then((res) => {
+        console.log(loggeduserinfo)
+        .then((res) => {
           console.log(res.data);
         });
       }

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { styles } from "../../../styles";
-import { navLinks } from "../../../constants/index";
+import { navLinks } from "../../../constants/constants";
 import { menu, close } from "../../../assets/index";
 import { Context } from "../../../Context/AllContext";
 import { toast } from "react-toastify";

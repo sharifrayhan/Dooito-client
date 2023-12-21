@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { arrow } from "../../../assets/index";
 
+
 const WhyUs = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: -50 },
@@ -76,6 +77,7 @@ const WhyUs = () => {
           </p>
         </motion.div>
       </motion.div>
+
     </div>
   );
 };

@@ -4,6 +4,8 @@ import Errorpage from "../Errorpage/Errorpage";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import Dashboard from "../Home/Dashboard/Dashboard";
+
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/Register",
         element: <Register></Register>,
+      },
+      {
+        path: "/Dashboard",
+        element: <Dashboard></Dashboard>,
       },
     ],
   },
