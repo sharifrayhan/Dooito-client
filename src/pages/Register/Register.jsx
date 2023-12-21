@@ -13,7 +13,6 @@ const Register = () => {
       register,
       handleSubmit,
       formState: { errors },
-      watch,
     } = useForm();
   
     const axiosSecure = useAxiosSecure();
@@ -67,11 +66,11 @@ const Register = () => {
       
 
   return (
-    <div className="bg-[url(https://i.ibb.co/n8rm5BH/bg-2.jpg)] bg-cover">
+    <div className="">
         <ToastContainer/>
       <Navbar />
       <div className="flex items-center justify-center min-h-screen">
-        <div className="p-8 rounded shadow-md bg-[#0A7443] w-full md:w-2/3 lg:w-1/2 xl:w-1/3">
+        <div className="p-8 rounded shadow-md bg-[#272638] w-full md:w-2/3 lg:w-1/2 xl:w-1/3">
           <h2 className="text-2xl text-[#f7f5f2] font-semibold mb-6">Register</h2>
           <form onSubmit={handleSubmit(onSubmit)} >
             <div className="grid grid-cols-2 gap-4">
@@ -143,23 +142,6 @@ const Register = () => {
                     <span className="text-red-500 text-xs">{errors?.password.message}</span>
                 )}
                 </div>
-
-                <div className="mb-4">
-                <label className="block text-sm font-medium text-[#f7f5f2]">Confirm Password:</label>
-                <input
-                    type="password"
-                    {...register('confirmPassword', {
-                    validate: (value) =>
-                        value === watch('password') || 'Passwords do not match',
-                    })}
-                    className={`form-input bg-[#f7f5f2] mt-1 p-2 w-full ${
-                    errors?.confirmPassword ? 'border-red-500' : ''
-                    }`}
-                />
-                {errors?.confirmPassword && (
-                    <span className="text-red-500 text-xs">{errors?.confirmPassword.message}</span>
-                )}
-                </div>
             </div>
 
             <div className="mb-4 flex items-center">
@@ -187,9 +169,9 @@ const Register = () => {
               </button>
             </div>
             <center className=' my-3'>
-            <p className="text-black">
+            <p className="text-[#D7D7DE]">
               Already have an account?{' '}
-              <Link className="text-red-600" to="/Login">
+              <Link className="text-violet-700" to="/Login">
                 Login
               </Link>
             </p>

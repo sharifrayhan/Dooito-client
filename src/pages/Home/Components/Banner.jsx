@@ -23,7 +23,7 @@ const Banner = () => {
             <Cursor></Cursor>
           </p>
           <Link to="/Login">
-            <button className="bg-[#1F2937] my-3 text-white rounded-md px-5 py-3">
+            <button className="bg-[#1F2937] my-3 text-white text-sm md:text-md rounded-md px-4 md:px-5 py-2 md:py-3">
               Lets Explore
             </button>
           </Link>

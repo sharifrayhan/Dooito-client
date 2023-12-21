@@ -96,7 +96,7 @@ const Navbar = () => {
 
         {!user && (
           <Link to="/login">
-            <button className="py-1 md:py-3 lg:py-3 px-1 md:px-4 lg:px-4 text-xs md:text-sm lg:text-sm glass rounded-md hover:bg-gradient-to-r from-[#06beb6] to-[#48b1bf] text-[#D7D7DE]">
+            <button className="py-1 hidden md:block md:py-3 lg:py-3 px-1 md:px-4 lg:px-4 text-xs md:text-sm lg:text-sm glass rounded-md hover:bg-gradient-to-r from-[#06beb6] to-[#48b1bf] text-[#D7D7DE]">
               Log In
             </button>
           </Link>
@@ -116,14 +116,14 @@ const Navbar = () => {
                   <p className="block px-4 py-2 text-xs">{userEmail}</p>
                   <Link
                     to="/Dashboard"
-                    className="block px-4 py-2 text-sm hover:bg-[#EF5C2B]"
+                    className="block px-4 py-2 text-sm hover:bg-violet-400"
                     onClick={closeDropdown}
                   >
                     Dashboard
                   </Link>
                   <button
                     onClick={handleLogOut}
-                    className="px-4 py-2 text-sm hover:bg-[#EF5C2B]"
+                    className="px-4 w-full text-start py-2 text-sm hover:bg-violet-400"
                   >
                     Log Out
                   </button>
@@ -148,44 +148,42 @@ const Navbar = () => {
             <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
               {!user && (
                 <Link to="/login">
-                  <button className="py-1 hidden md:block md:py-3 lg:py-3 px-1 md:px-4 lg:px-4 text-xs md:text-sm lg:text-sm glass rounded-md hover:bg-gradient-to-r from-[#06beb6] to-[#48b1bf] text-[#162028]">
+                  <button className="py-1 md:py-3 lg:py-3 px-1 md:px-4 lg:px-4 text-xs md:text-sm lg:text-sm glass rounded-md hover:bg-gradient-to-r from-[#06beb6] to-[#48b1bf] text-[#D7D7DE]">
                     Log In
                   </button>
                 </Link>
               )}
 
               {user && (
-                <div className="hidden md:flex items-center gap-3">
-                  <div className="relative">
-                    <img
-                      className="w-5 h-5 cursor-pointer md:w-8 md:h-8 lg:w-9 lg:h-9 rounded-full"
-                      src={userPhoto}
-                      alt=""
-                    />
-                    <div className="absolute w-[150px] z-30 top-full mt-1 -ml-[115px] py-2 bg-white text-gray-800 shadow-md rounded-lg">
-                      <h1 className="block px-4 py-2 text-sm">{userName}</h1>
-                      <p className="block px-4 py-2 text-xs">{userEmail}</p>
+               
+                  <div className="">
+                    <div className="flex gap-2 mb-1 items-start">
+                        <img
+                        className="w-5 h-5 mt-1 cursor-pointer md:w-8 md:h-8 lg:w-9 lg:h-9 rounded-full"
+                        src={userPhoto}
+                        alt=""
+                        />
+                        <div>
+                        <h1 className=" text-sm">{userName}</h1>
+                        <p className="text-xs">{userEmail}</p>
+                        </div>
+                    </div>
                       <Link
                         to="/Dashboard"
-                        className="block px-4 py-2 text-sm hover:bg-[#EF5C2B]"
+                        className="font-medium cursor-pointer text-[16px]"
                       >
                         Dashboard
                       </Link>
-                      <button
-                        onClick={handleLogOut}
-                        className="px-4 py-2 text-sm hover:bg-[#EF5C2B]"
-                      >
-                        Log Out
-                      </button>
+                  
                     </div>
-                  </div>
-                </div>
+            
+            
               )}
 
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                  className={` font-medium cursor-pointer text-[16px] ${
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
                   onClick={() => {
@@ -196,6 +194,14 @@ const Navbar = () => {
                   <a href={`#${nav.id}`}>{nav.title}</a>
                 </li>
               ))}
+              {user && (
+    <button
+    onClick={handleLogOut}
+    className=" font-medium cursor-pointer text-[16px]"
+  >
+    Log Out
+  </button>
+              )}
             </ul>
           </div>
         </div>

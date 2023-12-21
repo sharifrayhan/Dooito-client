@@ -4,7 +4,7 @@ const styles = {
     padding: "sm:px-16 px-6 sm:py-16 py-10",
   
     bannerHeadText:
-      "font-black text-[#D7D7DE] lg:text-[70px] md:text-[50px] text-[25px] lg:leading-[88px] ml-0  lg:ml-[50px] mt-5",
+      "font-black text-[#D7D7DE] lg:text-[70px] md:text-[50px] text-[30px] lg:leading-[88px] ml-0  lg:ml-[50px] mt-5",
     bannerSubText:
       "text-[#D7D7DE] font-medium lg:text-[23px] text-[12px] lg:leading-[30px]",
   

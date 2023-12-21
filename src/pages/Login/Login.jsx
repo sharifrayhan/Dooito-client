@@ -44,11 +44,11 @@ const Login = () => {
     }
 
   return (
-    <div className=" bg-[url(https://i.ibb.co/n8rm5BH/bg-2.jpg)] bg-cover">
+    <div className="">
       <ToastContainer></ToastContainer>
       <Navbar></Navbar>
       <div className="flex items-center justify-center min-h-screen">
-        <div className=" p-8 rounded shadow-md bg-[#0b4442] w-full md:w-1/2 lg:w-1/3">
+        <div className=" p-8 rounded shadow-md bg-[#272638] w-full md:w-1/2 lg:w-1/3">
           <h2 className="text-2xl text-[#f7f5f2] font-semibold mb-6">Login</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
@@ -123,9 +123,9 @@ const Login = () => {
               </button>
             </div>
             <center>
-         <p className=" text-black ">
+         <p className=" text-[#D7D7DE] ">
            Dont have an account?
-           <Link className=" text-red-600" to="/Register">
+           <Link className=" text-violet-700" to="/Register">
              Register
            </Link>
          </p>
