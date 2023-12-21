@@ -16,7 +16,7 @@ function Sidebar() {
   return (
     <>
    
-    <div className="flex items-start gap-2 ">
+    <div className="flex  items-start gap-11 ">
     <aside className="h-screen w-max px-4 py-6 bg-black flex flex-col justify-between items-center">
       <div className="flex flex-col gap-4 items-center">
         <div
@@ -68,7 +68,9 @@ function Sidebar() {
       </div>
 
     </aside>
+    <div className="flex items-center justify-center mt-5">
     <Render activeLink={active}></Render>
+    </div>
     </div>
     </>
   );
