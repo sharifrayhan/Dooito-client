@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronLast, ChevronFirst } from "lucide-react"
 
-import { ToastContainer } from 'react-toastify';
+
 
 import { additionalLinks, mainLinks } from "../../../../constants/constants";
 import SidebarItem from "./SidebarItem";
@@ -15,7 +15,7 @@ function Sidebar() {
 
   return (
     <>
-   <ToastContainer></ToastContainer>
+
     <div className="flex  items-start gap-1 md:gap-11 ">
     <aside className="h-screen w-max px-4 py-6 bg-[#202124] flex flex-col justify-between items-center">
       <div className="flex flex-col gap-4 items-center">

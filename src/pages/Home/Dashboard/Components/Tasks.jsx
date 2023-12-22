@@ -189,11 +189,11 @@ const Tasks = () => {
     const thereAreTasksToDo = todoTasks?.length;
 
     if (thereAreTasksToDo) {
-      setTimeout(() => {
+    
         toast.info(`You have ${thereAreTasksToDo} tasks left to do!`, {
           position: toast.POSITION.TOP_RIGHT,
         });
-      }, 1000);
+     
     }
   }, [todoTasks]);
 
