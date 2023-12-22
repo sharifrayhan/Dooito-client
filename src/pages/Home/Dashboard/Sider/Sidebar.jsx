@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronLast, ChevronFirst } from "lucide-react"
 
-
+import { ToastContainer } from 'react-toastify';
 
 import { additionalLinks, mainLinks } from "../../../../constants/constants";
 import SidebarItem from "./SidebarItem";
@@ -10,13 +10,13 @@ import Additionaltem from "./Additionaltem";
 
 
 function Sidebar() {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const [active, setActive] = useState(mainLinks[0].id);
 
   return (
     <>
-   
-    <div className="flex  items-start gap-11 ">
+   <ToastContainer></ToastContainer>
+    <div className="flex  items-start gap-1 md:gap-11 ">
     <aside className="h-screen w-max px-4 py-6 bg-[#202124] flex flex-col justify-between items-center">
       <div className="flex flex-col gap-4 items-center">
         <div
@@ -36,7 +36,7 @@ function Sidebar() {
           </div>
           <button
             onClick={() => setExpanded((prev) => !prev)}
-            className="p-1.5 text-gray-100 rounded-lg bg-accent-light hover:bg-accent-lighter"
+            className="p-1.5  text-gray-100 rounded-lg bg-accent-light hover:bg-accent-lighter"
           >
             {expanded ? <ChevronFirst /> : <ChevronLast />}
           </button>

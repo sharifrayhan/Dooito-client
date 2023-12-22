@@ -16,8 +16,8 @@ const navLinks = [
       title: "About",
     },
     {
-      id: "Dashboard",
-      title: "Dashboard",
+      id: "YT Channel",
+      title: "YT Channel",
     },
     {
       id: "faq",

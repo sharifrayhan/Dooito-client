@@ -49,11 +49,11 @@ const AddTask = () => {
   return (
     <div>
       <div className=" ">
-        <div className="min-w-[100px] mx-2 md:mx-10 lg:mx-24 mt-5 mb-10">
+        <div className="min-w-[100px] mx-0 md:mx-10 lg:mx-24 mb-10">
           <div className="w-full max-w-md mx-auto">
-            <div className="py-10 px-14 bg-[#272638] rounded-md">
+            <div className="py-5 md:py-10 px-3 md:px-14 bg-[#272638] rounded-md">
               <div className="text-center my-5">
-                <h1 className="mb-6 text-[#a55e3f] font-garamond uppercase font-semibold text-3xl">Add New Task</h1>
+                <h1 className="mb-6 text-[#a55e3f] font-garamond  font-semibold text-3xl">Add New Task</h1>
                 <p className="text-gray-200">You can add new tasks from here.</p>
               </div>
 
@@ -68,7 +68,7 @@ const AddTask = () => {
                       name="taskName"
                       required
                       placeholder="Enter Your Task Name"
-                      className="w-full border rounded px-3 py-2"
+                      className="w-full text-[#272638] border rounded px-3 py-2"
                     />
                   </div>
                   <div className="mb-4 ">
@@ -79,39 +79,41 @@ const AddTask = () => {
                       name="taskDetails"
                       required
                       placeholder="Enter your task details"
-                      className="w-full h-[42px] border rounded px-3 py-2"
+                      className="w-full text-[#272638] h-[42px] border rounded px-3 py-2"
                     />
                   </div>
                 </div>
 
                 <div className="flex flex-col">
-                  <div className="mb-4 ">
-                    <label className="block font-semibold text-gray-200" htmlFor="dueDate">
-                      Due Date:
-                    </label>
-                    <DatePicker
-                      selected={dueDate}
-                      onChange={(date) => setDueDate(date)}
-                      dateFormat="MM/dd/yyyy"
-                      className="w-full border rounded px-3 py-2"
-                    />
-                  </div>
-                  <div className="mb-4 ">
-                    <label className="block font-semibold text-gray-200" htmlFor="priority">
-                      Priority:
-                    </label>
-       
-                    <select
-                      name="priority"
-                      value={priority}
-                      onChange={(e) => setPriority(e.target.value)}
-                      className="w-full text-gray-800 border rounded px-3 py-2"
-                    >
-                      <option value="Low">Low</option>
-                      <option value="Moderate">Moderate</option>
-                      <option value="High">High</option>
-  
-                    </select>
+                  <div className="flex gap-2">
+                      <div className="mb-4 ">
+                        <label className="block font-semibold text-gray-200" htmlFor="dueDate">
+                          Due Date:
+                        </label>
+                        <DatePicker
+                          selected={dueDate}
+                          onChange={(date) => setDueDate(date)}
+                          dateFormat="MM/dd/yyyy"
+                          className="w-full text-[#272638] border rounded px-3 py-2"
+                        />
+                      </div>
+                      <div className="mb-4 ">
+                        <label className="block font-semibold text-gray-200" htmlFor="priority">
+                          Priority:
+                        </label>
+          
+                        <select
+                          name="priority"
+                          value={priority}
+                          onChange={(e) => setPriority(e.target.value)}
+                          className="w-full text-gray-800 border rounded px-3 py-2"
+                        >
+                          <option value="Low">Low</option>
+                          <option value="Moderate">Moderate</option>
+                          <option value="High">High</option>
+      
+                        </select>
+                      </div>
                   </div>
                   <div className="mb-4 ">
                     <label className="block font-semibold text-gray-200" htmlFor="status">

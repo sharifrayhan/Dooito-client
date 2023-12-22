@@ -21,8 +21,8 @@ const Navbar = () => {
       case "About":
         navigate("/About");
         break;
-      case "Dashboard":
-        navigate("/Dashboard");
+      case "YT Channel":
+       window.open("https://www.youtube.com");
         break;
       case "FAQ":
         navigate("/FAQ");
@@ -206,7 +206,7 @@ const Navbar = () => {
                     setActive(nav.title);
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  <a onClick={()=>linkClick(nav.title)}>{nav.title}</a>
                 </li>
               ))}
               {user && (

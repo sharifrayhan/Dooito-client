@@ -3,8 +3,10 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { useDrag, useDrop } from 'react-dnd';
 import { useCurrentUserTask } from '../../../../Hook/useCurrentUserTask';
 import Swal from 'sweetalert2';
+import { toast, ToastContainer } from 'react-toastify';
 
 import useAxiosSecure from '../../../../Axios/useAxiosSecure';
+import { useEffect } from 'react';
 
 
 const DraggableTask = ({ task, onDrop }) => {
@@ -153,7 +155,7 @@ const TaskTable = ({ tasks, title, onDrop }) => {
     <div className=' mb-5 border bg-[#262538] border-white border-3 p-5 rounded-lg'>
       <h2 className={`font-bold ${title=="Completed"&& "bg-[#00C875]" } ${title=="Ongoing"&& "bg-[#FDAB3D]"} ${title=="To Do"&& "bg-[#E2445C]"} py-1 rounded-sm  px-2 `}  >{title}</h2>
       <div className="overflow-x-auto">
-        <table className="table table-xs md:table-sm">
+        <table className="table table-xs lg:table-sm">
           <thead>
             <tr className=' text-white'>
               <th>Name</th>
@@ -183,11 +185,25 @@ const TaskTable = ({ tasks, title, onDrop }) => {
 const Tasks = () => {
   const { todoTasks, ongoingTasks, completedTasks, updateTaskStatus } = useCurrentUserTask();
 
+  useEffect(() => {
+    const thereAreTasksToDo = todoTasks?.length;
+
+    if (thereAreTasksToDo) {
+      setTimeout(() => {
+        toast.info(`You have ${thereAreTasksToDo} tasks left to do!`, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }, 1000);
+    }
+  }, [todoTasks]);
+
   const handleDrop = (taskId, currentStatus) => {
     updateTaskStatus(taskId, currentStatus);
   };
 
   return (
+    <>
+    <ToastContainer></ToastContainer>
     <DndProvider backend={HTML5Backend}>
       <div>
         <TaskTable tasks={todoTasks} title="To Do" onDrop={handleDrop} />
@@ -195,6 +211,7 @@ const Tasks = () => {
         <TaskTable tasks={completedTasks} title="Completed" onDrop={handleDrop} />
       </div>
     </DndProvider>
+    </>
   );
 };
 
