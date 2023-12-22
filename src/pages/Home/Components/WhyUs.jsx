@@ -17,8 +17,8 @@ const WhyUs = () => {
     <div className="my-5 shadow-element mx-4 py-11">
       <div className="text-center my-3">
         <h1 className="text-3xl font-bold">Why Us?</h1>
-        <p className="text-gray-600 mt-2">
-          Designed to simplify your workflow and boost collaboration, Dooito empowers you to master your day with precision.
+        <p className="text-gray-400 mt-2">
+        Dooito is designed for a diverse audience including developers, corporate professionals, bankers, entrepreneurs, students, educators, and creatives, providing a unified platform to streamline workflows, enhance collaboration, and master daily tasks with precision.
         </p>
       </div>
 

@@ -26,6 +26,27 @@ const DraggableTask = ({ task, onDrop }) => {
 
     const { refetch} = useCurrentUserTask();
     const axiosSecure = useAxiosSecure();
+
+    const handleDelete= async (id) =>{
+      try {
+        const deleteid = id;
+        const response = await axiosSecure.delete(`/tasks/${deleteid}`);
+
+        if (response.status === 200) {
+            refetch()
+            Swal.fire({
+        icon: 'success',
+        title: 'Task Deleted!',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+        } else {
+          console.error('Failed to delete task:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error delete task:', error);
+      }
+    }
   
     const handleEdit = () => {
       Swal.fire({
@@ -118,6 +139,11 @@ const DraggableTask = ({ task, onDrop }) => {
           Edit
         </button>
       </th>
+      <th>
+        <button className="btn btn-ghost btn-xs" onClick={()=>handleDelete(task?._id)}>
+          Delete
+        </button>
+      </th>
     </tr>
   );
 };
@@ -135,6 +161,7 @@ const TaskTable = ({ tasks, title, onDrop }) => {
               <th>Priority</th>
               <th>Status</th>
               <th>Edit</th>
+              <th>Delete</th>
               <th></th>
             </tr>
           </thead>
