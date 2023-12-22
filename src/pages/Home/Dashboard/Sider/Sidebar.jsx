@@ -17,7 +17,7 @@ function Sidebar() {
     <>
    
     <div className="flex  items-start gap-11 ">
-    <aside className="h-screen w-max px-4 py-6 bg-black flex flex-col justify-between items-center">
+    <aside className="h-screen w-max px-4 py-6 bg-[#202124] flex flex-col justify-between items-center">
       <div className="flex flex-col gap-4 items-center">
         <div
           className={`flex items-center justify-between transition-all ${

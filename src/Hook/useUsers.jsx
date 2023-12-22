@@ -11,6 +11,8 @@ const useUsers = () => {
     queryKey: ['users'],
   });
 
+  console.log(allUsers)
+
   return { allUsers, isLoading, error, refetch };
 };
 

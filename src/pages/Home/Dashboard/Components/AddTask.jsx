@@ -30,10 +30,12 @@ const AddTask = () => {
       status,
     };
 
+    console.log(newTask)
+
     try {
       const url = '/tasks'; 
       const response = await axiosSecure.post(url, newTask);
-      if (response.status === 200) {
+      if (response.status === 201) {
         Swal.fire('Success!', 'Task added successfully!', 'success');
       } else {
         Swal.fire('Error', 'Failed to add task', 'error');

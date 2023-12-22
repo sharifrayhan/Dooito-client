@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 
+
 export const Context = createContext(null);
 const auth = getAuth(app);
 console.log(auth);
@@ -20,6 +21,8 @@ console.log(auth);
 const AllContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -62,12 +65,16 @@ const AllContext = ({ children }) => {
     };
   }, [user?.email]);
 
-  // create log out method
 
-  const logOut = () => {
-    return signOut(auth);
+
+  const logOut = async (navigate) => {
+    try {
+      await signOut(auth);
+      navigate("/");
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
   };
-
   const send = {
     createUser,
     updateProfile,

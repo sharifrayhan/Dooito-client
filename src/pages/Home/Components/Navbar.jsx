@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { styles } from "../../../styles";
 import { navLinks } from "../../../constants/constants";
 import { menu, close } from "../../../assets/index";
@@ -15,6 +15,22 @@ const Navbar = () => {
 
   const { user, logOut } = useContext(Context);
   const navigate = useNavigate();
+
+  const linkClick = (title) => {
+    switch (title) {
+      case "About":
+        navigate("/About");
+        break;
+      case "Dashboard":
+        navigate("/Dashboard");
+        break;
+      case "FAQ":
+        navigate("/FAQ");
+        break;
+      default:
+        navigate("/");
+    }
+  };
 
   const userName = user?.displayName;
   const userPhoto = user?.photoURL;
@@ -87,9 +103,12 @@ const Navbar = () => {
               className={`${
                 active === nav.title ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+              onClick={() => {
+                setActive(nav.title);
+                
+              }}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+              <a onClick={()=>linkClick(nav.title)}>{nav.title}</a>
             </li>
           ))}
         </ul>
@@ -122,7 +141,7 @@ const Navbar = () => {
                     Dashboard
                   </Link>
                   <button
-                    onClick={handleLogOut}
+                    onClick={()=>handleLogOut(navigate)}
                     className="px-4 w-full text-start py-2 text-sm hover:bg-violet-400"
                   >
                     Log Out
@@ -155,29 +174,25 @@ const Navbar = () => {
               )}
 
               {user && (
-               
-                  <div className="">
-                    <div className="flex gap-2 mb-1 items-start">
-                        <img
-                        className="w-5 h-5 mt-1 cursor-pointer md:w-8 md:h-8 lg:w-9 lg:h-9 rounded-full"
-                        src={userPhoto}
-                        alt=""
-                        />
-                        <div>
-                        <h1 className=" text-sm">{userName}</h1>
-                        <p className="text-xs">{userEmail}</p>
-                        </div>
+                <div className="">
+                  <div className="flex gap-2 mb-1 items-start">
+                    <img
+                      className="w-5 h-5 mt-1 cursor-pointer md:w-8 md:h-8 lg:w-9 lg:h-9 rounded-full"
+                      src={userPhoto}
+                      alt=""
+                    />
+                    <div>
+                      <h1 className=" text-sm">{userName}</h1>
+                      <p className="text-xs">{userEmail}</p>
                     </div>
-                      <Link
-                        to="/Dashboard"
-                        className="font-medium cursor-pointer text-[16px]"
-                      >
-                        Dashboard
-                      </Link>
-                  
-                    </div>
-            
-            
+                  </div>
+                  <Link
+                    to="/Dashboard"
+                    className="font-medium cursor-pointer text-[16px]"
+                  >
+                    Dashboard
+                  </Link>
+                </div>
               )}
 
               {navLinks.map((nav) => (
@@ -195,12 +210,12 @@ const Navbar = () => {
                 </li>
               ))}
               {user && (
-    <button
-    onClick={handleLogOut}
-    className=" font-medium cursor-pointer text-[16px]"
-  >
-    Log Out
-  </button>
+                <button
+                onClick={()=>handleLogOut(navigate)}
+                  className=" font-medium cursor-pointer text-[16px]"
+                >
+                  Log Out
+                </button>
               )}
             </ul>
           </div>

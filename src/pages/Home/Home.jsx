@@ -2,6 +2,7 @@ import Banner from "./Components/Banner";
 import Navbar from "./Components/Navbar";
 import {dooito_cover} from "../../assets/index"
 import WhyUs from "./Components/WhyUs";
+import Footer from "./Components/Footer";
 
 const Home = () => {
 
@@ -19,6 +20,7 @@ const Home = () => {
       <Banner></Banner>
       </div>
       <WhyUs></WhyUs>
+      <Footer></Footer>
     </div>
   );
 };

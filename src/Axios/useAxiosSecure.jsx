@@ -3,29 +3,24 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000',
-    withCredentials: true
-})
+  baseURL: "https://dooito-server.vercel.app",
+});
 
-const useAxiosSecure = () =>{
+const useAxiosSecure = () => {
+  const navigate = useNavigate();
 
-const navigate = useNavigate()
-
-useEffect(()=>{
-
-    axiosSecure.interceptors.response.use(res=>{
+  useEffect(() => {
+    axiosSecure.interceptors.response.use(
+      (res) => {
         return res;
-    }, 
+      },
 
-    error => {
-
-        console.log("error catched by interceptor", error.response)
-    }
-    
-    )
-
-},[navigate])
-return axiosSecure;
-}
+      (error) => {
+        console.log("error catched by interceptor", error.response);
+      }
+    );
+  }, [navigate]);
+  return axiosSecure;
+};
 
 export default useAxiosSecure;
